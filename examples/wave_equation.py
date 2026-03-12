@@ -72,7 +72,7 @@ def initial_condition(x, n_grid):
     """Two Gaussian pulses traveling in opposite directions."""
     L = 2.0 * np.pi
     u0 = torch.exp(-40.0 * (x - L / 3.0) ** 2) + 0.5 * torch.exp(-40.0 * (x - 2.0 * L / 3.0) ** 2)
-    v0 = torch.zeros(n_grid)
+    v0 = torch.zeros(n_grid, dtype=u0.dtype, device=u0.device)
     return torch.cat([u0, v0])
 
 
